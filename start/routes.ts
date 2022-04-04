@@ -28,3 +28,5 @@ Route.get('/', async () => {
 
 Route.post('/search-music', 'YoutubesController.search').prefix('api')
 Route.get('/play-music/:videoId', 'YoutubesController.play').prefix('api')
+Route.post('/auth/register', 'AuthController.register').prefix('api')
+Route.post('/auth/login', 'AuthController.login').prefix('api')
