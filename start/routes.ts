@@ -26,14 +26,18 @@ Route.get('/', async () => {
   }
 })
 
-Route.post('/search-music', 'YoutubesController.search').prefix('api')
-Route.get('/play-music/:videoId', 'YoutubesController.play').prefix('api')
-Route.post('/auth/register', 'AuthController.register').prefix('api')
-Route.post('/auth/login', 'AuthController.login').prefix('api')
+Route.group(() => {
+  Route.post('/search-music', 'YoutubesController.search')
+  Route.get('/play-music/:videoId', 'YoutubesController.play')
+  Route.post('/auth/register', 'AuthController.register')
+  Route.post('/auth/login', 'AuthController.login')
+}).prefix('api')
 
 Route.group(() => {
   Route.get('/auth/check', 'AuthController.check')
   Route.get('/auth/logout', 'AuthController.logout')
+  Route.post('/playlist/save', 'MusicController.savePlaylist')
+  Route.get('/playlist/fetch', 'MusicController.fetchPlaylists')
 })
   .prefix('api')
   .middleware('auth')
