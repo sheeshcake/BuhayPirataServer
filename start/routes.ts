@@ -38,6 +38,7 @@ Route.group(() => {
   Route.get('/auth/logout', 'AuthController.logout')
   Route.post('/playlist/save', 'MusicController.savePlaylist')
   Route.get('/playlist/fetch', 'MusicController.fetchPlaylists')
+  Route.post('/playlist/add', 'MusicController.addMusicToPlaylist')
 })
   .prefix('api')
   .middleware('auth')

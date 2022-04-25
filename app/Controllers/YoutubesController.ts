@@ -35,8 +35,10 @@ export default class YoutubesController {
     })
     response.json({
       title: videoInfo.videoDetails.title,
-      thumbnail: videoInfo.videoDetails.thumbnail.thumbnails[0].url,
+      thumbnail: videoInfo.videoDetails.thumbnails[0].url,
       url: audioFormat.url,
+      videoId: videoId,
+      ytlink: videoInfo.videoDetails.video_url,
     })
   }
 }
