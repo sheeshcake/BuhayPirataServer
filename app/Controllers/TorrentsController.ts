@@ -52,7 +52,11 @@ export default class TorrentsController {
     console.log('Magnet', magnet)
     for (let i = 0; i < torrent.files.length; i++) {
       if (torrent.files[i].name === fileName) {
-        file = torrent.files[i]
+        const ext = fileName.split('.').pop()
+        if (ext === 'mp4' || ext === 'mkv' || ext === 'avi') {
+          file = torrent.files[i]
+          break
+        }
       }
     }
     const range = request.headers().range
