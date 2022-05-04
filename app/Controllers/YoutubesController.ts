@@ -11,12 +11,16 @@ export default class YoutubesController {
     const filter = filters.get('Type').get('Video')
     await ytsr(filter.url).then((r) => {
       return response.json(
-        r.items.slice(0, 9).map((item) => {
+        r.items.slice(0, 8).map((item) => {
           return {
             title: item.title,
             url: item.url,
             thumbnail: item.bestThumbnail.url,
             id: item.id,
+            // additional_data: item,
+            uploadedAt: item.uploadedAt,
+            duration: item.duration,
+            author: item.author.name,
           }
         })
       )

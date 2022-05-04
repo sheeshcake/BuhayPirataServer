@@ -31,6 +31,12 @@ Route.group(() => {
   Route.get('/play-music/:videoId', 'YoutubesController.play')
   Route.post('/auth/register', 'AuthController.register')
   Route.post('/auth/login', 'AuthController.login')
+  Route.get('/add/:magnet', 'TorrentsController.add')
+  Route.get('/stream/:magnet/:file_name', 'TorrentsController.stream')
+  Route.get('/list', 'TorrentsController.list')
+  Route.get('/stats', 'TorrentsController.stats')
+  Route.get('/errors', 'TorrentsController.error')
+  Route.get('/delete/:magnet', 'TorrentsController.remove')
 }).prefix('api')
 
 Route.group(() => {
